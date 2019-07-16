@@ -22,6 +22,7 @@ router.post('/register', async (req, resp) => {
             return resp.status(400).send({ error: "Usuario ja existe! " + error });
 
         const user = await User.create(req.body);
+        console.log("usuario criado ->" , user);
 
         user.password = undefined;
         user.save();

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.formBuilder.group({
-        name: [null], 
+        username: [null], 
         password: [null]
     })
     
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     console.log(this.user.value);
     this.login = this.user.value;
+    console.log(this.login.username +  " e senha " + this.login.password)
     this.loginService.autenticar(this.login).subscribe((signin:any) =>{
         if(signin.token) this.router.navigate(['userHome']);
 
