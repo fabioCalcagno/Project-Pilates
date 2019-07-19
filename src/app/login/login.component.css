@@ -93,5 +93,13 @@ input{
     margin: 0;
 }
 
+.error-msg{
+    color:red;
+    background-image: url('../login/img/icons8-remover-usuário-masculino-16.png');
+    background-repeat: no-repeat;
+    width:100%;
+    height: 100%;
+}
+
 
    

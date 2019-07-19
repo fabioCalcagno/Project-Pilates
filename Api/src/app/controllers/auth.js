@@ -19,7 +19,7 @@ router.post('/register', async (req, resp) => {
 
     try {
         if (await User.findOne({ username }))
-            return resp.status(400).send({ error: "Usuario ja existe! " + error });
+            return resp.status(400).send({ error: "Usuario ja existe! "  });
 
         const user = await User.create(req.body);
         console.log("usuario criado ->" , user);
@@ -46,10 +46,11 @@ router.post('/autenticate', async (req, resp) => {
 
 
         if (!user)
-            return resp.status(400).send({ error: 'Usuario não enontrado' + error });
+            return resp.status(400).send({ error: 'Usuario não enontrado' });
 
         if (!await bcrypt.compare(password, user.password))
-            return resp.status(400).send({ error: ' Senha Incorreta '  }); console.log("senha", password);
+            return resp.status(400).send({ error: ' Senha Incorreta '  }); 
+            console.log("senha", password);
         
          user.password = undefined;
 
