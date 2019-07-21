@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-
 const authConfig = require('../../config/auth');
 
 
@@ -30,6 +29,7 @@ module.exports = (req,resp,next) => {
        
        
             req.userId = decoded.id;
+            req.username = decoded.username;
             return next();
         });
 

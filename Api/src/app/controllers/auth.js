@@ -28,7 +28,7 @@ router.post('/register', async (req, resp) => {
         user.save();
 
         return resp.send({ user,
-            token: generateToken({ id: user.id }), 
+            token: generateToken({ id: user.id }, { name : user.username}), 
          });
 
     } catch (error) {
@@ -56,8 +56,8 @@ router.post('/autenticate', async (req, resp) => {
 
        
         return resp.send({ user, 
-            token: generateToken({ id: user.id }) ,
-         });
+            token: generateToken({ id: user.id, user: user.username }) 
+         });console.log(user.id)
 
     } catch (error) {
 
