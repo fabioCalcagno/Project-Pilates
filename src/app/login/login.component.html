@@ -13,13 +13,16 @@
 
 <body>
     <div>
-        <form [formGroup]="user" (ngSubmit)="onSubmit()" >
+        <form  [formGroup]="user" (ngSubmit)="onSubmit()" >
             <div id="center-form">
                 <label>Usuário</label>
-                <input type="text" formControlName="username"  required>
+                <input #loginForm type="text" formControlName="username"  required>
                 <label>Senha</label>
                 <input type="password" formControlName="password"    required>
+                
                 <button type="submit"  class="img-login"></button>
+                <span class="error-msg">{{error}} </span>
+           
             </div>
         </form>
     </div>
