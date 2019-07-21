@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormBuilder, FormGroup } from '../../../node_modules/@angular/forms';
 
 @Component({
   selector: 'app-user-home',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHomeComponent implements OnInit {
 
-  constructor() { }
+  private user:FormGroup;
+
+  constructor(private formBuilder:FormBuilder) { }
+
+ 
+/* private user = window.localStorage.getItem('authToken')
+  */
 
   ngOnInit() {
+     
+   
   }
+
 
 }
