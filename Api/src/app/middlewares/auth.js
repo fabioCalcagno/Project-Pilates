@@ -15,7 +15,7 @@ module.exports = (req, resp, next) => {
     const parts = authHeader.split(' ');
 
     if (!parts.lenght === 2)
-        return resizeBy.status(401).send({ erros: "Erro de Token" });
+        return resp.status(401).send({ erros: "Erro de Token" });
 
 
     const [scheme, token] = parts;
@@ -25,13 +25,13 @@ module.exports = (req, resp, next) => {
 
 
     jwt.verify(token, authConfig.secret, (err, decoded) => {
-        if (err) return resp.status(401).send({ error: "token invalido " });
-
-
-        req.userId = decoded.id;
-        req.username = decoded.username;
-        console.log('entrou no auth ', req.userId)
-        return next();
-    });
+        if (err) {
+        return resp.status(401).send({err :  "token invalido " });
+            }
+            req.userId = decoded.id;
+            req.username = decoded.username;
+            console.log('entrou no auth ', req.userId)
+            return next();
+        });
 
 };

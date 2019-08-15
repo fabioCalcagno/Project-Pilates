@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const authConfig = require('../../config/auth');
 const crypto = require('crypto');
 const mailer = require('../../modules/mailer');
-//const authMidleware = require('../middlewares/auth');
+const authMidleware = require('../middlewares/auth');
 
 
 function generateToken(params = {}) {
@@ -15,7 +15,7 @@ function generateToken(params = {}) {
     });
 }
 
-
+ /* router.use(authMidleware);  */
 
 router.post('/register', async (req, resp) => {
     const { username } = req.body;
@@ -46,6 +46,7 @@ router.post('/register', async (req, resp) => {
 
 
 router.post('/autenticate', async (req, resp) => {
+    /*  router.use(authMidleware)  */
 
     const { username, password } = req.body;
 
@@ -62,7 +63,8 @@ router.post('/autenticate', async (req, resp) => {
         user.password = undefined;
         return resp.send({
             user,
-            token: generateToken({ id: user.id, username: user.username }),
+            token: generateToken({ id: user.id, 
+                             username: user.username }),
         })
 
     } catch (error) {

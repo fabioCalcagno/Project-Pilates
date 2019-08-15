@@ -23,8 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     private authToken: AuthTokenService,
-    private loginService: LoginService) {
-  }
+    private loginService: LoginService) {}
   // tslint:disable-next-line: no-trailing-whitespace
 
   ngOnInit() {
@@ -39,8 +38,7 @@ export class LoginComponent implements OnInit {
     this.loginService.autenticar(this.login)
                      .subscribe((signin: any) => {
         if (signin.token) {
-          const token = signin.token
-                this.authToken.setToken(token);
+                this.authToken.setToken(signin.token);
                 this.router.navigate(['userHome']);
         }
         else {

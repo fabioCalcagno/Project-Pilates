@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup } from '../../../node_modules/@angular/forms';
-
+import { AuthTokenService } from '../Services/auth-token.service';
 @Component({
   selector: 'app-user-home',
   templateUrl: './user-home.component.html',
@@ -10,11 +10,12 @@ export class UserHomeComponent implements OnInit {
 
   private user:FormGroup;
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder,
+              private authToken : AuthTokenService   ) { }
 
  
-/* private user = window.localStorage.getItem('authToken')
-  */
+  userX = this.authToken.showJwt();
+
 
   ngOnInit() {
      

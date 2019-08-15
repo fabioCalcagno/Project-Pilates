@@ -1,0 +1,50 @@
+
+#left{
+    display: inline-flex;
+    float: left;
+}
+
+#right{
+    position: sticky;
+    float: right;
+}
+
+#user{
+   
+    image-orientation: from-image;
+    width: inherit;
+    height: inherit;
+  }
+
+img{
+    position: relative;
+    width: 15%;
+    height: 80%;
+  
+   
+}
+
+a {
+    justify-content: space-between;
+    display: inline-block;
+    text-decoration-line: none;
+    padding-left: 3%;
+    padding-top: 2%;
+    font-size: 100%;
+    color: rgb(0,148,218);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+}
+
+nav{
+    overflow: hidden;
+    display:inline-flex;
+    position:fixed;
+    padding-top: 0px;
+    margin-top: -08px;
+    margin-left: -5px;
+    height: 10%;
+    width: 100%;
+    background-color: rgb(189,215,116);
+    box-sizing: border-box;
+}
+
