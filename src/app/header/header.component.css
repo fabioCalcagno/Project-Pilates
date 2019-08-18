@@ -5,8 +5,23 @@
 }
 
 #right{
+    width: 40%;
     position: sticky;
-    float: right;
+    margin-right: 2%;
+    display: flex;
+}
+
+#a-right{
+    padding-left: 60%;
+    float:right;
+    font-size: 140%;
+    box-sizing: content-box;
+  
+}
+
+#a-right:hover{
+   
+    font-size:170%;
 }
 
 #user{
@@ -14,7 +29,10 @@
     image-orientation: from-image;
     width: inherit;
     height: inherit;
+    
   }
+
+  
 
 img{
     position: relative;
@@ -24,15 +42,20 @@ img{
    
 }
 
+
 a {
     justify-content: space-between;
     display: inline-block;
     text-decoration-line: none;
     padding-left: 3%;
-    padding-top: 2%;
+    padding-top: 5%;
     font-size: 100%;
     color: rgb(0,148,218);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+}
+
+a:hover{
+    font-size: 120%;
 }
 
 nav{
@@ -42,7 +65,7 @@ nav{
     padding-top: 0px;
     margin-top: -08px;
     margin-left: -5px;
-    height: 10%;
+    height: 15%;
     width: 100%;
     background-color: rgb(189,215,116);
     box-sizing: border-box;

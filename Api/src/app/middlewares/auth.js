@@ -1,15 +1,15 @@
 const jwt = require('jsonwebtoken');
-const authConfig = require('../../config/auth');
+const authConfig = require('../../config/auth.json');
 
 
 
 
 module.exports = (req, resp, next) => {
-    const authHeader = req.headers.authorization;
+    const authHeader= req.headers.authorization;
+    console.log('porrraaaa', authHeader)
 
-
-    if (!authHeader)
-        return resp.status(401).send({ error: "token não informado" });
+    if (authHeader == undefined)
+        return resp.status(401).send("token não informado" );
 
 
     const parts = authHeader.split(' ');

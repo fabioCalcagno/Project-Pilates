@@ -1,4 +1,5 @@
 const express = require('express');
+const authMidleware = require('../middlewares/auth')
 
 
 const Project = require('../models/project');
@@ -6,6 +7,8 @@ const Project = require('../models/project');
 
 
 const router = express.Router();
+
+router.use(authMidleware)
 
 
 router.get('/:pesquisa', async (req,resp) => {

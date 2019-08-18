@@ -15,7 +15,7 @@ function generateToken(params = {}) {
     });
 }
 
- /* router.use(authMidleware);  */
+ 
 
 router.post('/register', async (req, resp) => {
     const { username } = req.body;
@@ -46,7 +46,7 @@ router.post('/register', async (req, resp) => {
 
 
 router.post('/autenticate', async (req, resp) => {
-    /*  router.use(authMidleware)  */
+        
 
     const { username, password } = req.body;
 
@@ -61,11 +61,13 @@ router.post('/autenticate', async (req, resp) => {
             return resp.status(400).send({ error: ' Senha Incorreta ' });
 
         user.password = undefined;
-        return resp.send({
-            user,
-            token: generateToken({ id: user.id, 
-                             username: user.username }),
-        })
+        let token =  generateToken({ id: user.id, username: user.username })
+        resp.setHeader('Authorization', 'Bearer '+  token);
+        return resp.send({ user, token })
+        , router.use(authMidleware), console.log('ydagsdyaskjg', token )
+       
+        
+        
 
     } catch (error) {
 

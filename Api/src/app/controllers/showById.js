@@ -2,13 +2,14 @@ const express = require('express');
 
 
 const Project = require('../models/project');
+const authMidleware = require('../middlewares/auth')
 
 
 
 const router = express.Router();
 
 
-
+router.use(authMidleware);
 
 //show by id
 
