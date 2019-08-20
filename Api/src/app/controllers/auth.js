@@ -62,9 +62,9 @@ router.post('/autenticate', async (req, resp) => {
 
         user.password = undefined;
         let token =  generateToken({ id: user.id, username: user.username })
-        resp.setHeader('Authorization',  token);
+         resp.setHeader('Authorization', 'Bearer' +  token); 
         return resp.send({ user, token })
-        , router.use(authMidleware), console.log('ydagsdyaskjg', token )
+        , router.use(authMidleware)
        
         
         

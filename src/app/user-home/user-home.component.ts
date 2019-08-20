@@ -31,7 +31,7 @@ export class UserHomeComponent implements OnInit {
     }))
       .subscribe(sucess => {
         if (sucess) alert('ok')
-        else this.router.navigate(['/naoFabio']);
+        else  this.router.navigate(['/error']);  // em construção
       })
   }
 

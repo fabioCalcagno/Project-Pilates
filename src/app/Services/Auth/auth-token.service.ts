@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,16 +14,18 @@ export class AuthTokenService {
 
   constructor(  ) { }
   
+  private headers = new  HttpHeaders();
+
   httpOptions = {
-    headers: new HttpHeaders({
+    headers:  ({
       'Content-Type':  'application/json',
-      'Authorization': 'Bearer ' + `${this.getToken()}`
+      'Authorization': 'Bearer ' + `${this.getToken()}`,
+     
     })
   };
 
    setToken(token: any){
-    return window.localStorage.setItem('authToken', token)
-    console.log(token) 
+    return window.localStorage.setItem('authToken', token);
    }
 
    getToken(){
@@ -33,6 +36,13 @@ export class AuthTokenService {
     const user = jwt_decode(this.getToken()) as Login;
     return user;
    }
+
+   hasToken(){
+    return  this.headers.has('Authorization');
+     
+   }
+
+
 
   
 
