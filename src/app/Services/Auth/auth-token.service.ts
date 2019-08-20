@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AuthTokenMidleware} from '../../../Api/src/app/middlewares/auth';
-import { HttpClient } from '@angular/common/http';
 import * as jwt_decode from 'jwt-decode'; 
-import { Login } from '../login/login';
+import { Login } from '../../login/login';
+import { HttpHeaders } from '@angular/common/http';
 
 
 
@@ -12,9 +11,14 @@ import { Login } from '../login/login';
 })
 export class AuthTokenService {
 
-
-  
   constructor(  ) { }
+  
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer ' + `${this.getToken()}`
+    })
+  };
 
    setToken(token: any){
     return window.localStorage.setItem('authToken', token)

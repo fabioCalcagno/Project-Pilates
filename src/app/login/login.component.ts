@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { Login } from './login';
 import { LoginService } from '../Services/Login/login-service.service';
-import { AuthTokenService } from '../Services/auth-token.service';
+import { AuthTokenService } from '../Services/Auth/auth-token.service';
 
 
 @Component({

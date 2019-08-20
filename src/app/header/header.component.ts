@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '../../../node_modules/@angular/forms';
-import { AuthTokenService } from '../Services/auth-token.service';
+import { AuthTokenService } from '../Services/Auth/auth-token.service';
 
 @Component({
   selector: 'app-header',
