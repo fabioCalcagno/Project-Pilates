@@ -35,7 +35,7 @@ export class VideoAulasComponent implements OnInit {
     const div = this.renderer.createElement('div');
     this.renderer.addClass(div, 'video-div');
     
-    this.renderer.appendChild(this.el.nativeElement, div);
+    this.renderer.appendChild(this.el.nativeElement, div);  
     this.renderer.appendChild(this.topDiv.nativeElement, div);
 
    const iframe =  this.renderer.createElement('iframe', this.iframe_html );
