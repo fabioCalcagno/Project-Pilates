@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, VERSION } from '@angular/core';
 import { FormBuilder } from '../../../node_modules/@angular/forms';
 import { AuthTokenService } from '../Services/Auth/auth-token.service';
 
@@ -16,7 +16,44 @@ export class HeaderComponent implements OnInit {
 user = this.authToken.showJwt();
 
 
-  ngOnInit() {
-  }
+
+
+isShown:boolean = false;
+
+ngOnInit(){
 
 }
+
+
+/* 
+ @ViewChild('navbarToggler', {read: true, static: false}) navbarToggler: ElementRef;
+
+angularVersion: string;
+
+
+
+ngOnInit() {
+  this.angularVersion = VERSION.full;
+}
+
+private navBarTogglerIsVisible() {
+  const isVisible: boolean = this.navbarToggler.nativeElement.offsetParent !== null;
+  return isVisible;
+}
+
+
+collapseNav() {
+  if (this.navBarTogglerIsVisible()) {
+    console.log('collapseNav in NavigationComponent clicking navbarToggler');
+    this.navbarToggler.nativeElement.click();
+  }
+} */
+
+
+}
+
+
+
+ 
+
+

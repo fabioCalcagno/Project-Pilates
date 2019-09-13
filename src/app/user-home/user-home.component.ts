@@ -30,8 +30,8 @@ export class UserHomeComponent implements OnInit {
     this.http.get(this.url, this.authToken.httpOptions).pipe(tap(res => {
     }))
       .subscribe(sucess => {
-        if (sucess) alert('ok')
-        else  this.router.navigate(['/error']);  // em construção
+        if (!sucess) this.router.navigate(['']);
+           // em construção
       })
   }
 

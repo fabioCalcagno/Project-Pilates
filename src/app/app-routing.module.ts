@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-
 import { LoginComponent } from './login/login.component';
 import { UserHomeComponent } from '../app/user-home/user-home.component';
 import { AuthGuard } from './Services/Auth/auth.guard';
+import { VideoAulasComponent } from './video-aulas/video-aulas.component';
+
 
 
 
@@ -14,6 +14,7 @@ const routes: Routes = [
     component: LoginComponent,
 
 
+
   },
   {
     path: 'userHome',
@@ -21,6 +22,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     
   },
+  {
+    path: 'videoaulas',
+    component: VideoAulasComponent,
+    canActivate: [AuthGuard],
+  },
+
+
 
 ];
 

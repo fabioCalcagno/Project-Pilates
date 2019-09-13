@@ -8,6 +8,8 @@ import { LoginModule } from './login/login.module';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { VideoAulasComponent } from './video-aulas/video-aulas.component';
+import { EmbedVideo } from 'ngx-embed-video';
 
 
 @NgModule({
@@ -16,13 +18,15 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     UserHomeComponent,
     HeaderComponent,
+    VideoAulasComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    EmbedVideo.forRoot()
     
      
     
