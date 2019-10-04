@@ -24,14 +24,18 @@ export class UserHomeComponent implements OnInit {
     private http: HttpClient) { }
 
   url = 'http://localhost:3003/getById/sjhdf';
+  
 
   ngOnInit() {
 
-    this.http.get(this.url, this.authToken.httpOptions).pipe(tap(res => {
-    }))
+    this.http.get(this.url, this.authToken.getHeaderToken())
+             .pipe(tap(res => {  
+              console.log(res)
+               
+               }))
       .subscribe(sucess => {
-        if (!sucess) this.router.navigate(['']);
-           // em construção
+        if (!sucess) 
+           console.log(sucess)
       })
   }
 

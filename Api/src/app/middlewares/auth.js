@@ -6,7 +6,7 @@ const authConfig = require('../../config/auth.json');
 
 module.exports = (req, resp, next) => {
     const authHeader= req.headers.authorization;
-    console.log('porrraaaa', authHeader)
+    console.log('porrraaaa', req.headers.authorization)
 
     if (authHeader == undefined)
         return resp.status(401).send("token não informado" );
@@ -30,7 +30,7 @@ module.exports = (req, resp, next) => {
             }
             req.userId = decoded.id;
             req.username = decoded.username;
-            console.log('entrou no auth ', req.userId)
+            console.log('entrou no authMidleware ', req.userId)
             return next();
         });
 

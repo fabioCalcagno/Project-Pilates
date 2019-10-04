@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
-app.use(cors());
+ app.use(cors()); 
 
 
 app.use(function (req, res, next) {
@@ -25,9 +25,11 @@ app.use(function (req, res, next) {
 
 
  next();
-});
+})
 
-require('./app/controllers/index')(app);
+
+
+require('./app/controllers/index')(app)
 
  app.listen(3003);
 

@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
 
 
 
-    constructor(private authService : AuthTokenService,
+    constructor(private authTokenService : AuthTokenService,
                 private router:Router) {
 
     }
@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
                                                   Promise<boolean> 
             {
                 console.log("entrou no authGuard");
-            if(this.authService.hasToken()){
+            if(this.authTokenService.hasToken()){ 
                 return false;
             }return true;
             

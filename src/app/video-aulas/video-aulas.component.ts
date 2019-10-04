@@ -1,7 +1,8 @@
 import { OnInit, ViewChild } from '@angular/core';
 import { Component, Renderer2, ElementRef } from '@angular/core';
-/* import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser'; */
+import { DomSanitizer } from '@angular/platform-browser'; 
 import { VideoServiceService } from '../Services/Video/video-service.service';
+
 
 
 
@@ -14,53 +15,39 @@ export class VideoAulasComponent implements OnInit {
 
   constructor(private videoService: VideoServiceService,
     private renderer: Renderer2,
-    private el: ElementRef) {
+    private el: ElementRef,
+    private domSanitizer:DomSanitizer
+                                     ) {
 
   }
-  videoUrl =  '../../../os-beneficios-do-pilates.mp4'           /* 'https://www.youtube.com/embebed/v=PM19B4cgOWE' */
+
+  
+
+   getEmbedUrl(codVideo){
+    return this.domSanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + codVideo + '?ecver=2')
+  }
+
+  videos = ['XP5TBzQkBvQ','cn-xwKY61Qw','f_dvr2mJvgM','9V9GSqld1_M',
+            'cn-xwKY61Qw',
+          '6wD4V0rvlDI']
+
+  videoUrl =   'https://www.youtube.com/watch?v=XP5TBzQkBvQ' 
   iframe_html;
-  divCreator;
 
      
 
   @ViewChild('topDiv', { read: ElementRef, static: true }) private topDiv: ElementRef<HTMLDivElement>;
-
-  ngOnInit() {
-   
-
-  /*   this.iframe_html = this.videoService.showVideo(this.videoUrl); */
-
-    
-     console.log(this.iframe_html)
-    const div = this.renderer.createElement('div');
-    this.renderer.addClass(div, 'video-div');
-    
-    this.renderer.appendChild(this.el.nativeElement, div);  
-    this.renderer.appendChild(this.topDiv.nativeElement, div);
-
-   const iframe =  this.renderer.createElement('iframe', this.iframe_html );
-   this.renderer.setAttribute(iframe, 'src', this.videoUrl)
-
+  @ViewChild('videoDiv', { read: ElementRef, static: true }) private videoDiv: ElementRef<HTMLDivElement>;
 
 
   
 
-    this.topDiv.nativeElement.appendChild(iframe)
-
-
-
-
+  ngOnInit() { 
     
-        
-        console.log(this.iframe_html) 
-    
-    
-        /*   this.divCreator = document.createElement("div");
-        this.divCreator.setAttribute("class", "video-div");
-        
-
- */
-
-
   }
+
+ 
+  
+ 
+
 }

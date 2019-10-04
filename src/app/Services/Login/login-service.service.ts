@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpResponse } from '@angular/common/http'
 import { tap } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 import { AuthTokenService } from '../Auth/auth-token.service'
@@ -20,11 +20,8 @@ export class LoginService {
 
 
   autenticar(user: any){
-   return this.http.post(this.loginUrl, user,this.authTokenService.httpOptions /* , { observe:'response' } */)
-                   /*   .pipe(tap(res =>{
-                     const authToken = res.headers.get('x-access-token');
-                     console.log("este aqui" , authToken)
-                   }) ) */
+   return this.http.post(this.loginUrl, user,  this.authTokenService.httpOptions)
+                  
     
   }
 

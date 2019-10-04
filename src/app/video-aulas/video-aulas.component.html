@@ -1,15 +1,18 @@
 
     <app-header></app-header>
 <body>
-    <div class="container"  #topDiv> </div>
+    <div class="container"  #topDiv>
+        
+            <div  #videoDiv class="video-div"  *ngFor="let video of videos" >
+               <iframe [src]='getEmbedUrl(video)' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen ></iframe>>
+            </div>
+           
    
-
+</div>
    
 
 </body>
 
-<!-- <div class="container" #top-div >
-        <div class="video-div" [innerHtml]="iframe_html"  >
-               <!--  <iframe [class.thumbnail]="thumbnail" [src]="urlVideo" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen
-                allowfullscreen></iframe> -->
+
+        
      

@@ -36,6 +36,14 @@ body{
     body{
         min-width: 270px;
         margin-left: 0;
+        background-image: url('../../assets/images/logo.png');
+        background-repeat: no-repeat;
+        background-position: center;
        
     }
+
+    #home-background{
+            background-image: unset;
+    }
+
 }

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Login } from './login';
 import { LoginService } from '../Services/Login/login-service.service';
 import { AuthTokenService } from '../Services/Auth/auth-token.service';
+import { single } from '../../../node_modules/rxjs/operators';
+import { HttpHeaderResponse } from '../../../node_modules/@angular/common/http';
 
 
 @Component({
@@ -26,6 +28,8 @@ export class LoginComponent implements OnInit {
     private loginService: LoginService) {}
   // tslint:disable-next-line: no-trailing-whitespace
 
+  HttpHeaderResponse:HttpHeaderResponse;
+
   ngOnInit() {
     this.user = this.formBuilder.group({
       username: [null],
@@ -38,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.loginService.autenticar(this.login)
                      .subscribe((signin: any) => {
         if (signin.token) {
-                this.authToken.setToken(signin.token);
+                 this.authToken.setHeaderToken(signin.token) 
                 this.router.navigate(['userHome']);
         }
         else {
